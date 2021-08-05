@@ -1,12 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de donas</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/popper.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Tienda de Donas</title>
 </head>
+
 <body>
+
+    <header>
+        <!--------------------------------- Nav --------------------------------->
+        <div class="container">
+            <div class="row align-items-stretch justify-content-between">
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top cyan">
+                    <a href="index.html"><h1><img src="img/logo.png" alt="">IDonas</h1></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <img src="img/cart.png" class="nav-link dropdown-toggle img-fluid" height="50px"
+                                    width="50px" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"></img>
+                                <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                                    <table id="lista-carrito" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Imagen</th>
+                                                <th>Nombre</th>
+                                                <th>Precio</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <a href="#" id="vaciar-carrito" class="btn btn-block">Vaciar Carrito</a>
+                                    <a href="#" id="procesar-pedido" class="btn btn-block cyan">Procesar Compra</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="navigation">
+                            <ul class="nav">
+                                <li class="nav-item hero active">Inicio</li>
+                                <li class="nav-item donas">Productos</li>
+                                <li class="nav-item nosotros">Nosotros</li>
+                                <li class="nav-item contacto">Contacto</li>
+                            </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--------------------------------- Hero --------------------------------->
+        <div id="hero" class="content">
+            <div class="container">
+                <h5>Probá nuestras donas 
+                <span class="txt-type" data-wait="3000" data-words='["Bañadas", "Oreo", "Rellenas"]'></span>
+                </h5>
+                <h6>Simplemente deliciosas!</h6>
+            </div>
+        </div>
+        <!---------------------------- Barra del Hero ---------------------------->
+        <div class="barra">
+            <div class="container">
+                <div class="row">
+                    <div class="col s4 icono icono1">
+                        <p>20 sabores diferentes<br>
+                        Explora los sabores premium</p>
+                    </div>
+                    <div class="col s4 icono icono2">
+                        <p>Reposteros expertos<br>
+                        Nuevas combinaciones</p>
+                    </div>
+                    <div class="col s4 icono icono3">
+                        <p>Bebida opcionales<br>
+                        Servicio de delivery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!------------------------------- Productos------------------------------->
+        <div id="donas" class="content" data-aos="fade-up" name="donas">
+            <div class="container" id="lista-productos">
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Donas Bañadas</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="img/dona1.jpg" class="card-img-top">
+                            <h3 class="card-title pricing-card-title precio ml-3">$ <span class="">550</span></h3>
+                            <ul class="list-unstyled mt-3 mb-4 ml-3">
+                                <li></li>
+                                <li>Con granas o sprinkles</li>
+                                <li><img src="img/estrellas.png"></li>
+                            </ul>
+                            <a href="#" class="btn button input agregar-carrito" data-id="1">Comprar</a>
+                        </div>
+                    </div>
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Mini-Donas</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="img/dona2.jpg" class="card-img-top">
+                            <h3 class="card-title pricing-card-title precio ml-3">$ <span class="">450</span></h3>
+                            <ul class="list-unstyled mt-3 mb-4 ml-3">
+                                <li></li>
+                                <li>Docena surtida</li>
+                                <li><img src="img/estrellas.png"></li>
+                            </ul>
+                            <a href="#" class="btn button input agregar-carrito" data-id="2">Comprar</a>
+                        </div>
+                    </div>
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Donas Oreo</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="img/dona3.jpg" class="card-img-top">
+                            <h3 class="card-title pricing-card-title precio ml-3">$ <span class="">550</span></h3>
+                            <ul class="list-unstyled mt-3 mb-4 ml-3">
+                                <li></li>
+                                <li>Rellenas de crema</li>
+                                <li><img src="img/estrellas.png"></li>
+                            </ul>
+                            <a href="#" class="btn button input agregar-carrito" data-id="3">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Donas Glaseadas</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="img/dona4.jpg" class="card-img-top">
+                            <h3 class="card-title pricing-card-title precio ml-3">$ <span class="">550</span></h3>
+                            <ul class="list-unstyled mt-3 mb-4 ml-3">
+                                <li></li>
+                                <li>O Sin glasear</li>
+                                <li><img src="img/estrellas.png"></li>
+                            </ul>
+                            <a href="#" class="btn button input agregar-carrito" data-id="4">Comprar</a>
+                        </div>
+                    </div>
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Dona con Café o Capuchino</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="img/dona5.jpg" class="card-img-top">
+                            <h3 class="card-title pricing-card-title precio ml-3">$ <span class="">375</span></h3>
+                            <ul class="list-unstyled mt-3 mb-4 ml-3">
+                                <li></li>
+                                <li>Delivery o Take away</li>
+                                <li><img src="img/estrellas.png"></li>
+                            </ul>
+                            <a href="#" class="btn button input agregar-carrito" data-id="5">Comprar</a>
+                        </div>
+                    </div>
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Donas Bañadas</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="img/dona1.jpg" class="card-img-top">
+                            <h3 class="card-title pricing-card-title precio ml-3">$ <span class="">550</span></h3>
     
+                            <ul class="list-unstyled mt-3 mb-4 ml-3">
+                                <li></li>
+                                <li>Con granas o sprinkles</li>
+                                <li><img src="img/estrellas.png"></li>
+                            </ul>
+                            <a href="#" class="btn button input agregar-carrito" data-id="6">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Mini Donas</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="img/dona2.jpg" class="card-img-top">
+                            <h3 class="card-title pricing-card-title precio ml-3">$ <span class="">450</span></h3>
+                            <ul class="list-unstyled mt-3 mb-4 ml-3">
+                                <li></li>
+                                <li>Docena surtida</li>
+                                <li><img src="img/estrellas.png"></li>
+                            </ul>
+                            <a href="#" class="btn button input agregar-carrito" data-id="7">Comprar</a>
+                        </div>
+                    </div>
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Donas Oreo</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="img/dona3.jpg" class="card-img-top">
+                            <h3 class="card-title pricing-card-title precio ml-3">$ <span class="">550</span></h3>
+                            <ul class="list-unstyled mt-3 mb-4 ml-3">
+                                <li></li>
+                                <li>Rellenas de crema</li>
+                                <li><img src="img/estrellas.png"></li>
+                            </ul>
+                            <a href="#" class="btn button input agregar-carrito" data-id="8">Comprar</a>
+                        </div>
+                    </div>
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-bold">Donas Glaseadas</h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="img/dona4.jpg" class="card-img-top">
+                            <h3 class="card-title pricing-card-title precio ml-3">$ <span class="">550</span></h3>
+                            <ul class="list-unstyled mt-3 mb-4 ml-3">
+                                <li></li>
+                                <li>O Sin glasear</li>
+                                <li><img src="img/estrellas.png"></li>
+                            </ul>
+                            <a href="#" class="btn button input agregar-carrito" data-id="9">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <!------------------------------------- ABOUT US ---------------------------------------------->
+        <section id="nosotros" class="content aboutUs" data-aos="fade-right" name="nosotros">
+            <div class="u-wrapper">
+                <div class="aboutUs-content">
+                    <h2 class=""><a name= nosotros></a>Nosotros</h2>
+				<div class="container1">
+					<div class="box">
+						<img class="img_nosotros" src="img/dona1.jpg" alt="nosotros">
+						<div class="capa">
+							<h4>IDonas <br>Probá nuestras donas</h4>
+						</div>
+					</div>
+					<div class="about__text col-md-6">
+						<p class="about__text--p1">
+							<b>IDonas</b> es el resultado de una historia familiar, que desde sus inicios se trabajó con una materia prima de primer nivel. Estas delicias que ya se 
+                            convirtieron en un clásico, y en una opción muy divertida a las típicas facturas y medialunas que siempre acompañaban nuestros desayunos y meriendas.
+						</p>
+						<p class="about__text--p2">
+							Actualmente, las ventas también se realizan a través de las distintas redes sociales como Instagram, Facebook, whatsapp y Messenger.
+						</p>
+						<p class="about__text--p3">
+							Agradecidos por la gran aceptación, cariño y repercusión del producto elaborado, esperamos seguir formando parte de esos <b> momentos únicos en sus vidas</b>. <br>
+						</p>
+					</div>
+				</div>
+                </div>
+            </div>
+		</section>
+
+        <!------------------------------------- CONTACT ---------------------------------------------->
+        <section id="contacto" class="content contact" data-aos="fade-left">
+            <div class="u-wrapper">
+                <div class="contact-content">
+                    <h3 class="tag"><a name= contacto></a><span>Contactanos</span></h3>
+                    <form action="" class="formulario" id="formulario">
+                        <!-- Grupo: Nombre -->
+                        <div class="formulario__grupo" id="grupo__nombre">
+                            <label for="nombre" class="formulario__label">Nombres</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Ingrese su nombre">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">El nombre tiene que ser de 4 a 16 dígitos y solo puede contener letras y espacios en blanco.</p>
+                        </div>
+                        <!-- Grupo: Apellido -->
+                        <div class="formulario__grupo" id="grupo__apellido">
+                            <label for="apellido" class="formulario__label">Apellido</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Ingrese su apellido">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">El apellido tiene que ser de 2 a 16 dígitos y solo puede contener letras y espacios en blanco.</p>
+                        </div>
+                        <!-- Grupo: Correo Electronico -->
+                        <div class="formulario__grupo" id="grupo__correo">
+                            <label for="correo" class="formulario__label">Correo Electrónico</label>
+                            <div class="formulario__grupo-input">
+                                <input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+                        </div>
+
+                        <!-- Grupo: Comentario -->
+                        <div class="formulario__grupo" id="grupo__comentario">
+                            <label for="message" class="formulario__label">Comentario</label>
+                            <textarea id="message" name="message" id="" cols="30" rows="10" placeholder="Dejános tu comentario"></textarea>
+                            <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+                        </div>
+
+                        <div class="formulario__mensaje" id="formulario__mensaje">
+                            <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+                        </div>
+
+                        <div class="formulario__grupo formulario__grupo-btn-enviar">
+                            <button type="submit" class="formulario__btn">Enviar</button>
+                            <!-- <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p> -->
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </section>
+
+        <!---------------------------------------------------Opiniones de Clientes(consulta API reqres)-->
+        <section class="clientes pt-5"  data-aos="fade-right">
+            <div>
+                <h2>Nuestros Clientes</h2>
+                <div class="" id="usuarios">
+                    <ul class="list-container">
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col s4">
+                    <div id="principal" class="menu">
+                        <a href="#donas" class="enlace">Delivery</a>
+                        <a href="#donas" class="enlace">Pedidos en linea</a>
+                        <a href="#donas" class="enlace">Pedidos por telefono</a>
+                        <a href="#donas" class="enlace">Sabores y bebidas</a>
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div id="secundaria" class="menu">
+                        <a href="#nosotros" class="enlace">Sobre nosotros</a>
+                        <a href="#" class="enlace">Ubicacion</a>
+                        <a href="#" class="enlace">Telefono</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="copyright center-align s12">&copy; Judith Grau 2021</p>
+    </footer>
+    <!-- librería AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 400,
+            duration: 800
+        });
+    </script>
+
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/sweetalert2.min.js"></script>
+    
+    <script src="js/form.js"></script>
+    <script src="js/api.js"></script>
+
+    <script src="js/carrito.js"></script>
+    <script src="js/pedido.js"></script>
+
 </body>
+
 </html>
